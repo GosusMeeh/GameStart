@@ -2,10 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use Laravel\Cashier\Cashier;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +29,10 @@ Route::get('shop', function () {
 Route::get('test', function () {
     return view('layouts.test');
 })->name('test');
+
+Route::get('chart', function () {
+    return view('chart');
+})->name('chart');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

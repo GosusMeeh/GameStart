@@ -22,6 +22,18 @@
             @auth
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                    <a href="{{ route('chart') }}" class="group -m-2 p-2 flex items-center pr-6">
+                        <!-- Heroicon name: outline/shopping-cart -->
+                        <svg class="flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="ml-2">0</span>
+                    </a>
+
+                    <span class="-m-2 h-6 w-px lg:mx-3 bg-gray-600" aria-hidden="true"></span>
+                </div>
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
@@ -53,9 +65,24 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            @else
+            @endauth
+
+            
+
+            @guest
             <div class="flex">
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                    <a href="{{ route('chart') }}" class="group -m-2 p-2 flex items-center pr-6">
+                        <!-- Heroicon name: outline/shopping-cart -->
+                        <svg class="flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </a>
+
+                    <span class="-m-2 h-6 w-px lg:mx-3 bg-gray-600" aria-hidden="true"></span>
+                </div>
+                
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('Entrar') }}
                     </x-nav-link>
@@ -66,8 +93,7 @@
                     @endif
                 </div>
             </div>
-            @endauth
-            
+            @endguest
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
