@@ -32,7 +32,7 @@ Route::get('test', function () {
 
 Route::get('chart', function () {
     return view('chart');
-})->name('chart');
+})->middleware('auth')->name('chart');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
