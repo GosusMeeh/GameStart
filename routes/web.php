@@ -34,10 +34,10 @@ Route::get('chart', function () {
     return view('chart');
 })->middleware('auth')->name('chart');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::controller(ProfileController::class)->middleware('auth')->group(function () {
+    Route::get('/profile', 'edit')->name('profile.edit');
+    Route::patch('/profile', 'update')->name('profile.update');
+    Route::delete('/profile', 'destroy')->name('profile.destroy');
+})->name('profile');
     
 require __DIR__.'/auth.php';

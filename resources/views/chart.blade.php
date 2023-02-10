@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="bg-white">
-    <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="py-12">
+    <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8 bg-gray-800 shadow-sm sm:rounded-lg">
         <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
         <form class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
         <section aria-labelledby="cart-heading" class="lg:col-span-7">
