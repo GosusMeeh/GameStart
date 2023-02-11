@@ -205,6 +205,7 @@
                 </section>
             </div>
 
+            <!-- LG NAV -->
             <div class="hidden lg:block">
                 <form class="divide-y divide-gray-200 space-y-10">
                 <div>
@@ -319,7 +320,9 @@
             <!-- Product grid -->
             <div class="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3">
             <!-- Replace with your content -->
-            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full"></div>
+                <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full">
+                    @include('layouts.inventory')
+                </div>
             <!-- /End replace -->
             </div>
         </div>

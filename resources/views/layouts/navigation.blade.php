@@ -23,8 +23,8 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <div class="inline-flex items-center py-2 text-sm leading-4 font-medium rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                    <a href="{{ route('chart') }}" class="group -m-2 p-2 flex items-center pr-6">
-                        <x-chart-svg></x-chart-svg>
+                    <a href="{{ route('cart') }}" class="group -m-2 p-2 flex items-center pr-6">
+                        <x-cart-svg></x-cart-svg>
                         <span class="ml-2">0</span>
                     </a>
 
@@ -67,16 +67,16 @@
             
 
             @guest
-            <div class="flex">
-                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                    <a href="{{ route('chart') }}" class="group -m-2 p-2 flex items-center pr-6">
-                        <x-chart-svg></x-chart-svg>
+            <div class="hidden sm:flex">
+                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md  dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 ">
+                    <a href="{{ route('cart') }}" class="group -m-2 p-2 flex items-center mr-3 text-gray-500 hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                        <x-cart-svg></x-cart-svg>
                     </a>
 
-                    <span class="-m-2 h-6 w-px lg:mx-3 bg-gray-600" aria-hidden="true"></span>
+                    <span class="-m-2 h-6 w-px mx-3 bg-gray-600 hidden md:block" aria-hidden="true"></span>
                 </div>
                 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
+                <div class="flex space-x-8 sm:-my-px sm:ml-5">
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('Entrar') }}
                     </x-nav-link>
@@ -108,8 +108,8 @@
                 <x-game-controller-svg></x-game-controller-svg><span class="px-1"></span> {{ __('Juegos') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('chart')" :active="request()->routeIs('chart')">
-                <x-chart-svg></x-chart-svg><span class="px-1"></span> {{ __('Carrito') }}
+            <x-responsive-nav-link :href="route('cart')" :active="request()->routeIs('cart')">
+                <x-cart-svg></x-cart-svg><span class="px-1"></span> {{ __('Carrito') }}
             </x-responsive-nav-link>
             
         </div>

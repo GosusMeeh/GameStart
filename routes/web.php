@@ -30,9 +30,9 @@ Route::get('test', function () {
     return view('layouts.test');
 })->name('test');
 
-Route::get('chart', function () {
-    return view('chart');
-})->middleware('auth')->name('chart');
+Route::get('cart', function () {
+    return view('cart');
+})->middleware('auth')->name('cart');
 
 Route::controller(ProfileController::class)->middleware('auth')->group(function () {
     Route::get('/profile', 'edit')->name('profile.edit');
