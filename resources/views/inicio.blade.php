@@ -9,19 +9,28 @@
                 
                 <!-- Replace with your content -->
                     @foreach ($games as $game)
-                    <div class="max-w-sm rounded shadow-card">
-                        <img class="w-full rounded-t object-cover" style="height: 400px" src="{{ $game->image }}" alt="Portada de {{ $game->name }}">
-                        <div class="px-2 py-4 self-end">
-                            <div class="font-bold text-xl mb-2 text-gray-300">{{ $game->name }}</div>
-                            <p class="text-gray-500 text-2xl">
-                                @if ($game->discount == 0)
-                                    {{ $game->price }} €
-                                @else
-                                    {{ number_format($game->price*(1-1*$game->discount/100), 2, ',') }}{{'€'}} <s class="text-red-600 text-sm">{{ $game->price }} €</s> <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ '-'.$game->discount.'%'}}</span>
-                                @endif
-                            </p>
+                        @if($game->stock === 0) 
+                        <div class="max-w-sm rounded shadow-card grayscale">
+                        @else 
+                        <div class="max-w-sm rounded shadow-card"> 
+                            <a href="/game/{{ $game->id }}">
+                        @endif
+                        
+                            <img class="w-full rounded-t object-cover" style="height: 400px" src="{{ $game->image }}" alt="Portada de {{ $game->name }}">
+                            <div class="px-2 py-4 self-end">
+                                <div class="font-bold text-xl mb-2 text-gray-300">{{ $game->name }}</div>
+                                <p class="text-gray-500 text-2xl">
+                                    @if ($game->discount == 0)
+                                        {{ $game->price }} €
+                                    @else
+                                        {{ number_format($game->price*(1-1*$game->discount/100), 2, ',') }}{{'€'}} <s class="text-red-600 text-sm">{{ $game->price }} €</s> <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ '-'.$game->discount.'%'}}</span>
+                                    @endif
+                                </p>
+                            </div>
+                        @if($game->stock !== 0) 
+                            </a>
+                        @endif
                         </div>
-                    </div>
                     @endforeach
                 <!-- /End replace -->
                 </div>

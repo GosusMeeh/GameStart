@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +24,10 @@ Route::get('/', function () {
 Route::get('shop', function () {
     return view('shop');
 })->name('shop');
+
+Route::get('game/{id}', function () {
+    return view('description');
+})->name('game');
 
 Route::get('cart', function () {
     return view('cart');

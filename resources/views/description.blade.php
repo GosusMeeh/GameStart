@@ -1,5 +1,5 @@
 <x-app-layout>
 
-    <livewire:filter />
+    <livewire:game />
     
 </x-app-layout>
