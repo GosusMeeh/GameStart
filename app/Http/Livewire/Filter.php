@@ -34,7 +34,7 @@ class Filter extends Component
             $query->where('category', $this->categoryFilter);
         })->when($this->ageFilter, function($query) {
             $query->where('pegi', "<=" ,$this->ageFilter);
-        })->with('categories')->paginate(10);
+        })->with('categories')->paginate(6);
         return view('livewire.filter', compact('games', 'categories', 'pegis'));
     }
 }

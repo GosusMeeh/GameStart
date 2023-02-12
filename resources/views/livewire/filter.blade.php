@@ -4,21 +4,21 @@
         <p class="mt-4 text-base text-gray-500">¡Busca el juego que encaja con tu gamemode!</p>
     </div>
 
-    <div class="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+    <div class="pt-5 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
         <!-- Nav SM -->
         <div class="lg:hidden">
                 <!-- Filters -->
             <section aria-labelledby="filter-heading">
                 <h2 id="filter-heading" class="sr-only">Filters</h2>
 
-                <div class="relative z-10  border-b border-gray-200 pb-4">
-                    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between sm:px-6 lg:px-8">
-                        <div class="relative inline-block text-left">
-                            <div>
-                                <h1 class="text-gray-300 col-span-3">{{count($games)}} resultados</h1>
+                <div class="relative z-10  border-b border-gray-200 pb-2">
+                    <div class="max-w-7xl mx-auto flex items-center justify-between sm:px-6 lg:px-8">
+                        <div class="-mb-0 relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                             </div>
+                            <input wire:model="searchFilter" type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre">
                         </div>
-
                         <div class="">
                             <div class="flow-root">
                                 <div class="-mx-4 flex items-center divide-x divide-gray-200">
@@ -142,9 +142,8 @@
         </div>
 
         <!-- LG NAV -->
-        <aside class="hidden lg:block">
+        <aside class="relative hidden lg:block">
             <form class="divide-y divide-gray-200 space-y-6 bg-gray-800 p-4 rounded-2xl">
-
             <div>
             <fieldset>
                 <div class="space-y-3">
@@ -221,10 +220,6 @@
 
         <!-- Product grid -->
         <div class="relative grid grid-cols-2 md:grid-cols-3 gap-4 mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3 border-dashed border-gray-200 rounded-lg">
-            
-            <div class="hidden absolute lg:block" style="top: -30px">
-                <h1 class="text-gray-300">{{count($games)}} resultados</h1>
-            </div>
             <!-- Replace with your content -->
             @foreach ($games as $game)
             @if($game->stock === 0) 
@@ -253,6 +248,7 @@
                 </div>
             @endforeach
             <!-- /End replace -->
+            <div class="grid col-span-2 md:col-span-3 items-end">{{ $games->links() }}</div>
             </div>
         </div>
     </div>
