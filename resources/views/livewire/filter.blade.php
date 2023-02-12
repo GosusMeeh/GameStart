@@ -198,17 +198,17 @@
                 <div class="pt-4 space-y-3">
                     
                     <div class="flex items-center">
-                        <input id="fisico" name="tipo" value="fisico" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-indigo-600 focus:ring-indigo-500">
-                        <label for="fisico" class="ml-3 text-sm text-gray-400"> Ambos </label>
+                        <input wire:model="formatFilter" id="todos" name="tipo" value="todos" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-indigo-600 focus:ring-indigo-500">
+                        <label for="todos" class="ml-3 text-sm text-gray-400"> Ambos </label>
                     </div>
 
                     <div class="flex items-center">
-                        <input id="fisico" name="tipo" value="fisico" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-indigo-600 focus:ring-indigo-500">
+                        <input wire:model="formatFilter" id="fisico" name="tipo" value="fisico" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-indigo-600 focus:ring-indigo-500">
                         <label for="fisico" class="ml-3 text-sm text-gray-400"> Físico </label>
                     </div>
 
                     <div class="flex items-center">
-                        <input id="digital" name="tipo" value="" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-indigo-600 focus:ring-indigo-500">
+                        <input wire:model="formatFilter" id="digital" name="tipo" value="digital" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-indigo-600 focus:ring-indigo-500">
                         <label for="digital" class="ml-3 text-sm text-gray-400"> Digital </label>
                     </div>
 

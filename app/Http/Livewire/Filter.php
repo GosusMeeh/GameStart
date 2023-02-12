@@ -16,6 +16,7 @@ class Filter extends Component
 
     public $categoryFilter;
     public $ageFilter;
+    public $formatFilter;
     public $searchFilter;
 
     public function mount() 
@@ -34,6 +35,12 @@ class Filter extends Component
             $query->where('category', $this->categoryFilter);
         })->when($this->ageFilter, function($query) {
             $query->where('pegi', "<=" ,$this->ageFilter);
+        })->when($this->formatFilter, function($query) {
+            if($this->formatFilter == "fisico")
+                $query->whereNotNull('stock');
+            else if ($this->formatFilter == "digital") {
+                $query->whereNull('stock');
+            }
         })->with('categories')->paginate(6);
         return view('livewire.filter', compact('games', 'categories', 'pegis'));
     }

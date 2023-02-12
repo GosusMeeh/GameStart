@@ -17,7 +17,7 @@ class CategoriesSeeder extends Seeder
     {
         $categoriesJson = file_get_contents("database/seeders/categories.json");
         $categoriesArray = json_decode($categoriesJson, true);
-        // var_dump($categoriesArray);
+        
         foreach($categoriesArray as $category => $key) {
             $category = new Category();
             $category->name = $key['name'];
