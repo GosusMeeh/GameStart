@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Elden Ring",
+        "price": 59.99,
+        "discount": 42,
+        "img": "https://cdn-prod.scalefast.com/public/assets/img/resized/bandai-namco-store-eu/fdadc3a24ebe6227423924e2c86ba174_446_KR.jpg",
+        "pegi": 16,
+        "category": 2,
+        "stock": null
+    },
+
+    {
+        "name": "Borderlands 3",
+        "price": 59.99,
+        "discount": 87,
+        "img": "https://static.posters.cz/image/1300/posters/borderlands-3-cover-i76366.jpg",
+        "pegi": 18,
+        "category": 1,
+        "stock": null
+    },
+
+    {
+        "name": "Dishonored 2",
+        "price": 39.99,
+        "discount": 83,
+        "img": "https://m.media-amazon.com/images/I/81P22uL4nIL._AC_SY741_.jpg",
+        "pegi": 18,
+        "category": 2,
+        "stock": null
+    },
+
+    {
+        "name": "The Last of Us II",
+        "price": 64.99,
+        "discount": 14,
+        "img": "https://cdn-products.eneba.com/resized-products/5uVkB-8_9TOGEdLBgTSzh6Lh3zZfdKsmJv9XN786gnA_350x200_2x-0.jpeg",
+        "pegi": 18,
+        "category": 1,
+        "stock": 7
+    },
+
+    {
+        "name": "Proyect Zomboid",
+        "price": 13.99,
+        "discount": 47,
+        "img": "https://cdn.thegamesdb.net/images/original/boxart/front/10721-1.jpg",
+        "pegi": 16,
+        "category": 3,
+        "stock": null
+    },
+
+    {
+        "name": "Howarts Legacy",
+        "price": 59.99,
+        "discount": 27,
+        "img": "https://www.mobygames.com/images/covers/l/862059-hogwarts-legacy-xbox-series-front-cover.jpg",
+        "pegi": 12,
+        "category": 2,
+        "stock": null
+    },
+
+    {
+        "name": "Howarts Legacy",
+        "price": 74.95,
+        "discount": 0,
+        "img": "https://media.gameplaystores.es/105037-large_default/hogwarts-legacy-ps5.jpg",
+        "pegi": 12,
+        "category": 2,
+        "stock": 3
+    }
+
+]

@@ -13,7 +13,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('tienda')" :active="request()->routeIs('tienda')">
+                    <x-nav-link :href="route('shop')" :active="request()->routeIs('shop')">
                         {{ __('Juegos') }}
                     </x-nav-link>
                 </div>
@@ -28,7 +28,7 @@
                         <span class="ml-2">0</span>
                     </a>
 
-                    <span class="-m-2 h-6 w-px lg:mx-3 bg-gray-600" aria-hidden="true"></span>
+                    <span class="hidden lg:block -m-2 h-6 w-px mx-3 bg-gray-600" aria-hidden="true"></span>
                 </div>
 
                 <x-dropdown align="right" width="48">
@@ -68,12 +68,12 @@
 
             @guest
             <div class="hidden sm:flex">
-                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md  dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 ">
-                    <a href="{{ route('cart') }}" class="group -m-2 p-2 flex items-center mr-3 text-gray-500 hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                    <a href="{{ route('cart') }}" class="group -m-2 p-2 pr-0 flex items-center mr-6">
                         <x-cart-svg></x-cart-svg>
                     </a>
 
-                    <span class="-m-2 h-6 w-px mx-3 bg-gray-600 hidden md:block" aria-hidden="true"></span>
+                    <span class="hidden lg:block -m-2 h-6 w-px mx-3 bg-gray-600" aria-hidden="true"></span>
                 </div>
                 
                 <div class="flex space-x-8 sm:-my-px sm:ml-5">
@@ -104,7 +104,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('tienda')" :active="request()->routeIs('tienda')">
+            <x-responsive-nav-link :href="route('shop')" :active="request()->routeIs('shop')">
                 <x-game-controller-svg></x-game-controller-svg><span class="px-1"></span> {{ __('Juegos') }}
             </x-responsive-nav-link>
 
@@ -115,31 +115,44 @@
         </div>
 
         
-        @auth
+        
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
+            @auth
+                <div class="px-4">
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                </div>
 
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Perfil') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Desconectar') }}
+                <div class="mt-3 space-y-1">
+                    <x-responsive-nav-link :href="route('profile.edit')">
+                        {{ __('Perfil') }}
                     </x-responsive-nav-link>
-                </form>
-            </div>
+
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Desconectar') }}
+                        </x-responsive-nav-link>
+                    </form>
+                </div>
+            @endauth
+            @guest
+                <div class="space-y-1">
+                    <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                        {{ __('Entrar') }}
+                    </x-responsive-nav-link>
+                    @if (Route::has('register'))
+                        <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                            {{ __('Registrarse') }}
+                        </x-responsive-nav-link>
+                    @endif
+                </div>
+            @endguest
         </div>
-        @endauth
     </div>
 </nav>
 

@@ -13,12 +13,7 @@ switch ($align) {
         $alignmentClasses = 'origin-top-right right-0';
         break;
 }
-
-switch ($width) {
-    case '48':
-        $width = 'w-48';
-        break;
-}
+$width = 'w-'.$width;
 @endphp
 
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">

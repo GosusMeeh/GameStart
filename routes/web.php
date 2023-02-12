@@ -17,18 +17,14 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-
-    return view('inicio');
+    $games = (new GameController())->index()->sortByDesc('discount');
+    return view('inicio', compact('games'));
 })->name('inicio');
 // Route::get('/', [GameController::class, 'index'])->name('game.index');
 
 Route::get('shop', function () {
-    return view('tienda');
-})->name('tienda');
-
-Route::get('test', function () {
-    return view('layouts.test');
-})->name('test');
+    return view('shop');
+})->name('shop');
 
 Route::get('cart', function () {
     return view('cart');
