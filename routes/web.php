@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $games = (new GameController())->index()->sortByDesc('discount');
+    $games = (new GameController())->index()->sortByDesc('discount')->take(8);
     return view('inicio', compact('games'));
 })->name('inicio');
 // Route::get('/', [GameController::class, 'index'])->name('game.index');

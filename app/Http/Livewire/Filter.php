@@ -12,6 +12,7 @@ class Filter extends Component
     use WithPagination;
 
     public $categories;
+    public $categoryName;
     public $pegis;
 
     public $categoryFilter;
@@ -22,13 +23,20 @@ class Filter extends Component
     public function mount() 
     {   
         $this->categories = Category::all();
+        $this->categoryName = '';
         $this->pegis = [18,16,12,7,3];
+        $this->categoryFilter = '';
+        $this->ageFilter = '';
+        $this->formatFilter = '';
+        $this->searchFilter = '';
     }
 
     public function render()
     {
         $pegis="";
         $categories = "";
+        $categoryName="";
+        $this->categoryName = Category::all()->where('id', $this->categoryFilter)->value('name');
         $games = Game::query()->when($this->searchFilter, function($query) {
             $query->where('name', 'like', '%'.trim(preg_replace('!\s+!', ' ', $this->searchFilter)).'%');
         })->when($this->categoryFilter, function($query) {
@@ -36,9 +44,9 @@ class Filter extends Component
         })->when($this->ageFilter, function($query) {
             $query->where('pegi', "<=" ,$this->ageFilter);
         })->when($this->formatFilter, function($query) {
-            if($this->formatFilter == "fisico")
+            if($this->formatFilter == "Físico")
                 $query->whereNotNull('stock');
-            else if ($this->formatFilter == "digital") {
+            else if ($this->formatFilter == "Digital") {
                 $query->whereNull('stock');
             }
         })->with('categories')->paginate(6);

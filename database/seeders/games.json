@@ -67,6 +67,26 @@
         "pegi": 12,
         "category": 2,
         "stock": 3
+    },
+
+    {
+        "name": "God of War",
+        "price": 49.99,
+        "discount": 27,
+        "img": "https://m.media-amazon.com/images/I/619oj4N5UWS._AC_SX385_.jpg",
+        "pegi": 18,
+        "category": 2,
+        "stock": 15
+    },
+
+    {
+        "name": "God of War Ragnarok",
+        "price": 69.99,
+        "discount": 31,
+        "img": "https://preview.redd.it/or4k4sq8g8y81.jpg?width=640&crop=smart&auto=webp&s=507efe3a73e69526661bd78a36beaf15f0c9650e",
+        "pegi": 16,
+        "category": 2,
+        "stock": 10
     }
 
 ]
