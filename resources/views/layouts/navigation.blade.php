@@ -25,7 +25,7 @@
                 <div class="inline-flex items-center py-2 text-sm leading-4 font-medium rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                     <a href="{{ route('cart') }}" class="group -m-2 p-2 flex items-center pr-6">
                         <x-cart-svg></x-cart-svg>
-                        <span class="ml-2">0</span>
+                        <span class="ml-2">{{ Auth::user()->cart }}</span>
                     </a>
 
                     <span class="hidden lg:block -m-2 h-6 w-px mx-3 bg-gray-600" aria-hidden="true"></span>
@@ -68,8 +68,8 @@
 
             @guest
             <div class="hidden sm:flex">
-                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                    <a href="{{ route('cart') }}" class="group -m-2 p-2 pr-0 flex items-center mr-6">
+                <div class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800  focus:outline-none transition ease-in-out duration-150">
+                    <a href="{{ route('cart') }}" class="group -m-2 p-2 pr-0 flex items-center dark:hover:text-gray-300 hover:text-gray-700 mr-6">
                         <x-cart-svg></x-cart-svg>
                     </a>
 

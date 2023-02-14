@@ -117,7 +117,7 @@
 
                             <div x-show="$wire.categoryFilter != ''" class="-m-1 flex flex-wrap items-center">
                                 <span class="m-1 inline-flex rounded-full border border-gray-200 items-center py-1.5 pl-3 pr-2 text-sm font-medium bg-white text-gray-900">
-                                    <span x-text="$wire.categoryName"></span>
+                                    <span>{{ $categoryFilter=='' ? '' : \App\Models\Category::find($categoryFilter)->name }}</span>
                                     <button @click="$wire.categoryFilter = ''" type="button" class="flex-shrink-0 ml-1 h-4 w-4 p-1 rounded-full inline-flex text-gray-400 hover:bg-gray-200 hover:text-gray-500">
                                         <span class="sr-only">Remove filter for Objects</span>
                                         <svg class="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
@@ -234,17 +234,17 @@
         </aside>
 
         <!-- Product grid -->
-        <div class="relative grid grid-cols-2 md:grid-cols-3 gap-4 mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3 border-dashed border-gray-200 rounded-lg">
+        <div class="max-w-md sm:max-w-lg md:max-w-4xl lg:max-w-none w-full mx-auto relative grid grid-cols-2 md:grid-cols-3 gap-4 mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3 border-dashed border-gray-200 rounded-lg">
             <!-- Replace with your content -->
             @foreach ($games as $game)
             @if($game->stock === 0) 
-            <div class="max-w-sm rounded shadow-card grayscale">
+            <div class="max-w-md rounded shadow-card grayscale">
             @else 
             <div class="max-w-sm rounded shadow-card"> 
                 <a href="/game/{{ $game->id }}">
             @endif
                     
-                <img class="w-full rounded-t object-cover" style="height: 400px" src="{{ $game->image }}" alt="Portada de {{ $game->name }}">
+                <img class="w-full rounded-t object-cover h-80 sm:h-96 " src="{{ $game->image }}" alt="Portada de {{ $game->name }}">
                 <div class="px-2 py-4 self-end">
                     <div class="font-bold text-xl mb-2 text-gray-300">{{ $game->name }}</div>
                     <p class="text-gray-500 text-2xl">

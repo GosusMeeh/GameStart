@@ -16,7 +16,7 @@
                             <a href="/game/{{ $game->id }}">
                         @endif
                         
-                            <img class="w-full rounded-t object-cover" style="height: 400px" src="{{ $game->image }}" alt="Portada de {{ $game->name }}">
+                            <img class="w-full rounded-t object-cover h-72 sm:h-96" src="{{ $game->image }}" alt="Portada de {{ $game->name }}">
                             <div class="px-2 py-4 self-end">
                                 <div class="font-bold text-xl mb-2 text-gray-300">{{ $game->name }}</div>
                                 <p class="text-gray-500 text-2xl">

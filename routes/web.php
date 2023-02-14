@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GameController;
+use App\Models\Game;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,11 +28,13 @@ Route::get('shop', function () {
     return view('shop');
 })->name('shop');
 
-Route::get('game/{id}', function () {
-    return view('description');
+Route::get('game/{id}', function ($id) {
+    $game = Game::findOrFail($id);
+    $category = (new CategoryController())->show($game->category); 
+    return view('description', compact('game','category'));
 })->name('game');
 
-Route::get('cart', function () {
+Route::get('cart', function() {
     return view('cart');
 })->middleware('auth')->name('cart');
 

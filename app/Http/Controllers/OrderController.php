@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class GameController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        return Game::all();
+        //
     }
 
     /**
@@ -35,27 +35,29 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order();
+        $order->user_id = $request->user()->id;
+        $order->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show($game)
+    public function show(Order $order)
     {
-        return Game::all()->where('id', $game);
+        return view('components.item', compact('oder'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
+    public function edit(Order $order)
     {
         //
     }
@@ -64,10 +66,10 @@ class GameController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game $game)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -75,11 +77,11 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Game $game)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
     }
 }

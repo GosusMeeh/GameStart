@@ -54,7 +54,7 @@
         "price": 59.99,
         "discount": 27,
         "img": "https://www.mobygames.com/images/covers/l/862059-hogwarts-legacy-xbox-series-front-cover.jpg",
-        "pegi": 12,
+        "pegi": 16,
         "category": 2,
         "stock": null
     },
@@ -64,7 +64,7 @@
         "price": 74.95,
         "discount": 0,
         "img": "https://media.gameplaystores.es/105037-large_default/hogwarts-legacy-ps5.jpg",
-        "pegi": 12,
+        "pegi": 16,
         "category": 2,
         "stock": 3
     },
@@ -86,6 +86,26 @@
         "img": "https://preview.redd.it/or4k4sq8g8y81.jpg?width=640&crop=smart&auto=webp&s=507efe3a73e69526661bd78a36beaf15f0c9650e",
         "pegi": 16,
         "category": 2,
+        "stock": 10
+    },
+
+    {
+        "name": "Escape from Tarkov",
+        "price": 45.99,
+        "discount": 25,
+        "img": "https://preview.redd.it/bdy002cpghy11.jpg?auto=webp&s=fb32bba004c41a87481f4554657105063593b255",
+        "pegi": 18,
+        "category": 1,
+        "stock": null
+    },
+
+    {
+        "name": "Tom Clancy's Ghost Recon Wildlands",
+        "price": 59.99,
+        "discount": 77,
+        "img": "https://s3.thcdn.com/productimg/600/600/11136017-1374397464098279.jpg",
+        "pegi": 18,
+        "category": 1,
         "stock": 10
     }
 

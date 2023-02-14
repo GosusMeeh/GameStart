@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
-class CartController extends Controller
+class OrderItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -39,47 +39,47 @@ class CartController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra el contenido del objeto pedido 
      *
-     * @param  \App\Models\Cart  $cart
+     * @param  \App\Models\OrderItem  $orderItem
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
+    public function show(OrderItem $orderItem)
     {
-        //
+        return view('');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cart  $cart
+     * @param  \App\Models\OrderItem  $orderItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cart $cart)
+    public function edit(OrderItem $orderItem)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza la cantidad de juegos de la linea de pedido
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cart  $cart
+     * @param  \App\Models\OrderItem  $orderItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(OrderItem $orderItem, $quantity)
     {
-        //
+        $orderItem->fresh(['quantity' => $quantity]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cart  $cart
+     * @param  \App\Models\OrderItem  $orderItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy(OrderItem $orderItem)
     {
-        //
+        $orderItem->delete();
     }
 }

@@ -9,7 +9,7 @@ class Game extends Model
 {
     use HasFactory;
 
-    public function categories() {
-        return $this->belongsTo(Game::class);
+    public function categoryName() {
+        return $this->belongsTo(Category::class, 'category');
     }
 }

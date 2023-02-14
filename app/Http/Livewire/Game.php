@@ -2,12 +2,18 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\GameController;
 use Livewire\Component;
 
 class Game extends Component
 {
+    public $game = "";
+    public $category = "";
+
     public function render()
     {
-        return view('livewire.game');
+        $game = "";
+        $category = "";
+        return view('livewire.game', compact('game', 'category'));
     }
 }
