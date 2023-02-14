@@ -10,9 +10,6 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    
-    public $currentOrder;
-    // = Order::find(1)
 
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -49,11 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    // public function cart() {
-    //     return $this->currentOrder;
-    // }
-
-    // public function order() {
-    //     $this->currentOrder = $this->belongsTo(Order::class);
-    // }
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }

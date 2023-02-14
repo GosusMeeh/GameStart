@@ -42,9 +42,9 @@
         </div><br>
         @auth
 
-        <a href="{{}}" class="cursor-pointer dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
+        <button wire:click="addToCart" class="cursor-pointer dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
             <x-cart-svg></x-cart-svg>&nbsp;Añadir al carrito
-        </a>
+        </button>
 
         @else
 

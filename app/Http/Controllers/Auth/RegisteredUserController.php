@@ -48,7 +48,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        (new OrderController())->store($request);
+        $oc = new OrderController();
+        $oc->store($user);
+
 
         return redirect(RouteServiceProvider::HOME);
     }

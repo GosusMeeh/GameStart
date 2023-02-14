@@ -10,6 +10,10 @@ class Game extends Component
     public $game = "";
     public $category = "";
 
+    public function addToCart() {
+        
+    }
+
     public function render()
     {
         $game = "";
