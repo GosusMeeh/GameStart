@@ -1,4 +1,3 @@
-
 <div class="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
     <div class="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
         <img class="w-full h-full" alt="image of a girl posing" src="{{$game->image}}" />
@@ -23,7 +22,7 @@
                     @if ($game->discount == 0)
                         {{ $game->price }} €
                     @else
-                        {{ number_format($game->price*(1-$game->discount/100), 2, ',') }}{{'€'}} <s class="text-red-600 text-sm">{{ $game->price }} €</s> <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ '-'.$game->discount.'%'}}</span>
+                        {{ number_format($game->price*(1-$game->discount/100), 2, ',') }}{{'€'}} <s class="text-red-600 text-sm ">{{ $game->price }} €</s> <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ '-'.$game->discount.'%'}}</span>
                     @endif
                 </p>
             </div>
@@ -40,22 +39,26 @@
                 </p>
             </div>
         </div><br>
+        
         @auth
-
-        <button wire:click="addToCart" class="cursor-pointer dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
-            <x-cart-svg></x-cart-svg>&nbsp;Añadir al carrito
-        </button>
+        
+            @if($game->stock !== 0)
+                <button wire:click="addToCart" class="cursor-pointer dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
+                    <x-cart-svg></x-cart-svg>&nbsp;Añadir al carrito
+                </button>
+            @else
+                <a href="{{route('shop')}}" class="cursor-pointer dark:bg-gray-800 dark:text-gray-300 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
+                    Agotado
+                </a>
+            @endif
 
         @else
 
-        <h1 class="text-2xl text-gray-300 text-center mb-3">Necesita iniciar sesión para comprar </h1> 
-        <a href="{{route('login')}}" class="cursor-pointer dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
-            Iniciar sesión
-        </a>
+            <h1 class="text-2xl text-gray-300 text-center mb-3">Necesita iniciar sesión para comprar </h1> 
+            <a href="{{route('login')}}" class="cursor-pointer dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
+                Iniciar sesión
+            </a>
             
         @endauth
     </div>
 </div>
-        
-        
-    

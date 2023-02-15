@@ -38,6 +38,7 @@ class OrderController extends Controller
     {
         $order = new Order();
         $order->user_id = $user->id;
+        $order->totalPrice = 0;
         $order->paid=false;
         $order->save();
 
@@ -67,15 +68,16 @@ class OrderController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Pone la orden como pagada
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Order $order)
     {
-        //
+        $order->paid = true;
+        $order->save(); 
     }
 
     /**

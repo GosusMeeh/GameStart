@@ -12,4 +12,8 @@ class Game extends Model
     public function categoryName() {
         return $this->belongsTo(Category::class, 'category');
     }
+
+    public function orders() {
+        return $this->hasMany(OrderItem::class);
+    }
 }

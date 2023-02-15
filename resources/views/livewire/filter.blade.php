@@ -1,7 +1,7 @@
 <main class="max-w-2xl mx-auto py-8 px-4 sm:py-10 sm:px-6 sm:max-w-7xl lg:px-8">
     <div class="pb-2">
         <h1 class="text-4xl font-extrabold tracking-tight text-gray-300">Nuestro catálogo</h1>
-        <p class="mt-4 text-base text-gray-500">¡Busca el juego que encaja con tu gamemode!</p>
+        <p class="mt-4 text-base text-gray-500">¡Busca el juego que más encaja con tu estilo de juego!</p>
     </div>
 
     <div class="pt-5 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
@@ -253,11 +253,14 @@
                         @else
                             {{ number_format($game->price*(1-1*$game->discount/100), 2, ',') }}{{'€'}} <s class="text-red-600 text-sm">{{ $game->price }} €</s> <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ '-'.$game->discount.'%'}}</span>
                         @endif
+                        @if($game->stock === 0)
+                            <span class="text-gray-400 text-sm ml-3 bg-gray-700 p-1 px-2 rounded-md"> x Agotado</span>
+                        @endif
                     </p>
                 </div>
-                        
-                @if($game->stock !== 0) 
-                </a>
+                
+                @if($game->stock !== 0)
+                    </a>
                 @endif
 
                 </div>

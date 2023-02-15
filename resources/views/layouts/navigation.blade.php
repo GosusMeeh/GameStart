@@ -25,7 +25,10 @@
                 <div class="inline-flex items-center py-2 text-sm leading-4 font-medium rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                     <a href="{{ route('cart') }}" class="group -m-2 p-2 flex items-center pr-6">
                         <x-cart-svg></x-cart-svg>
-                        <span class="ml-2">{{ Auth::user()->orders->where('paid', 0)[0]->items->count() }}</span>
+                        <span class="ml-2">
+                            {{ Auth::user()->orders->where('paid', 0)->last()->items->count() }} 
+                                
+                        </span>
                     </a>
 
                     <span class="hidden lg:block -m-2 h-6 w-px mx-3 bg-gray-600" aria-hidden="true"></span>
@@ -47,6 +50,10 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Perfil') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('history')">
+                            {{ __('Historial') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -127,6 +134,10 @@
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('profile.edit')">
                         {{ __('Perfil') }}
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('history')">
+                        {{ __('Historial') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->

@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\GameController;
 use App\Models\Game;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,13 +31,37 @@ Route::get('shop', function () {
 
 Route::get('game/{id}', function ($id) {
     $game = Game::findOrFail($id);
-    $category = (new CategoryController())->show($game->category); 
-    return view('description', compact('game','category'));
+    return view('description', compact('game'));
 })->name('game');
 
 Route::get('cart', function() {
     return view('cart');
 })->middleware('auth')->name('cart');
+
+Route::get('pay/checkout', function() {
+    return view('livewire.checkout');
+})->middleware('auth')->name('checkout');
+
+Route::get('pay', function() {
+    $currentOrder = Auth::user()->orders->where('paid', 0)->last();
+    if ($currentOrder->totalPrice == 0) {
+        return redirect()->route('inicio');
+    }
+    $oc = new OrderController();
+    foreach($currentOrder->items as $item) {
+        $item->game->where('id', $item->game_id)->update(['stock' => $item->game->stock - $item->quantity]);
+    }
+    $oc->update(Auth::user()->orders->where('paid', 0)->last());
+
+    $oc->store(Auth::user());
+
+    return redirect()->route('inicio');
+})->middleware('auth')->name('pay');
+
+Route::get('history', function() {
+    $pedidos = Auth::user()->orders->where('paid', true);
+    return view('history', compact('pedidos'));
+})->middleware('auth')->name('history');
 
 Route::controller(ProfileController::class)->middleware('auth')->group(function () {
     Route::get('/profile', 'edit')->name('profile.edit');
